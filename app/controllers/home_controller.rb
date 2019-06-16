@@ -1,19 +1,32 @@
 class HomeController < ApplicationController
+
   def index
+    find_aqi
+  end
+
+  def zipcode
+    find_aqi
+  end
+
+  private
+
+  def find_aqi
     require 'net/http'
     require 'json'
 
-    @url = 'http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=92122&distance=25&API_KEY=45B18CCD-E787-49DB-ADCC-807503B6EC50'
+    @zipcode_query = params[:zipcode] || 92122
+
+    @url = "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=#{@zipcode_query}&distance=0&API_KEY=#{AQI_API_KEY}"
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @output = JSON.parse(@response)
 
-    if @output.empty?
+    if @output.empty? || !@output
       @final_output = "Error"
-    elsif !@output
-      @final_output ="Error"
+      @final_location = "Please enter correct zipcode"
     else
       @final_output = @output[0]['AQI']
+      @final_location = "This is current ozone air quality for #{@output[0]['ReportingArea']}"
     end
 
     case @final_output
@@ -39,6 +52,5 @@ class HomeController < ApplicationController
       @api_color = "gray"
       @api_description = "Data not found"
     end
-
   end
 end

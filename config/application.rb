@@ -17,3 +17,5 @@ module Ozone
     # the framework and any gems in your application.
   end
 end
+
+AQI_API_KEY = ENV['AQI_API_KEY']
