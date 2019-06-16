@@ -26,7 +26,7 @@ class HomeController < ApplicationController
       @final_location = "Please enter correct zipcode"
     else
       @final_output = @output[0]['AQI']
-      @final_location = "This is current ozone air quality for #{@output[0]['ReportingArea']}"
+      @final_location = "This is current air quality for #{@output[0]['ReportingArea']},  #{@output[0]['StateCode']}"
     end
 
     case @final_output
