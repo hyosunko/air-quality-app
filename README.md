@@ -42,7 +42,7 @@ http://localhost:3000
 
 Heroku is the best place to deploy rails app. Please refer [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5) documentation
 
-Add AQI_API_KEY in Conig Vars after deploying on Heroku.
+Add AQI_API_KEY in Config Vars after deploying on Heroku.
 
 ## Contributing
 
