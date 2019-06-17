@@ -44,6 +44,11 @@ Heroku is the best place to deploy rails app. Please refer [Heroku](https://devc
 
 Add AQI_API_KEY in Config Vars after deploying on Heroku.
 
+## Live Demo
+
+<a href="https://my-aqi.herokuapp.com/">
+<img src="https://github.com/hyosunko/hyosunko.github.io/blob/master/img/air-quality-app.gif" width="400"></a>
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.

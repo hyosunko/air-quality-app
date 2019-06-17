@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
     @zipcode_query = params[:zipcode] || 92122
 
-    @url = "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=#{@zipcode_query}&distance=0&API_KEY=#{AQI_API_KEY}"
+    @url = "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=#{@zipcode_query}&distance=25&API_KEY=#{AQI_API_KEY}"
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @output = JSON.parse(@response)
